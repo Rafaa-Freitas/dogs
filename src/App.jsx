@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 
-import Api from './api/Api';
-import UserPost from './api/endpoints/UserPost';
+import Api from './api-teste/Api';
+import UserPost from './api-teste/endpoints/UserPost';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
