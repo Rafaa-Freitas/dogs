@@ -3,42 +3,19 @@ import { Link } from 'react-router-dom';
 import Input from '../forms/Input';
 import Button from '../forms/Button';
 import useForm from '../../hooks/useForm';
-import { GET_USER, TOKEN_POST } from '../../Api';
+import { UserContext } from '../../UserContext';
 
 function LoginForm() {
   const username = useForm();
   const password = useForm();
 
-  React.useEffect(() => {
-    const token = window.localStorage.getItem('token');
-
-    if (token) {
-      getUser(token);
-    }
-  }, []);
-
-  async function getUser(token) {
-    const { url, options } = GET_USER(token);
-
-    const response = await fetch(url, options);
-    const json = await response.json();
-  }
+  const { userLogin } = React.useContext(UserContext);
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     if (username.isValid() && password.isValid()) {
-      const { url, options } = TOKEN_POST({
-        username: username,
-        password: password,
-      });
-
-      const response = await fetch(url, options);
-      const json = await response.json();
-
-      window.localStorage.setItem('token', json.token);
-
-      getUser(json.token);
+      userLogin(username.value, password.value);
     }
   }
 
@@ -59,7 +36,7 @@ function LoginForm() {
           {...password}
         ></Input>
 
-        <Button disabled>Entrar</Button>
+        <Button>Entrar</Button>
       </form>
       <Link to="/login/criar">Cadastro</Link>
     </div>
