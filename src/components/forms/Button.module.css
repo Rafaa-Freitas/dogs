@@ -14,7 +14,7 @@
   &:hover,
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px #a9b9ff, 0 0 0 4px var(--main-color);
+    box-shadow: 0 0 0 3px #c2efeb, 0 0 0 4px var(--main-color);
   }
 
   &:disabled {
