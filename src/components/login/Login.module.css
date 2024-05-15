@@ -7,7 +7,7 @@
   &::before {
     display: block;
     content: '';
-    background: url('../../assets/dog-image-login.png') no-repeat center;
+    background: url('../../assets/dog-image-login2.png') no-repeat center;
     background-size: cover;
   }
 }

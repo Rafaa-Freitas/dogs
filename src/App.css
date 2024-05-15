@@ -7,14 +7,16 @@
 body {
   --type-first: Helvetica, Arial, sans-serif;
   --type-second: 'Spectral', Georgia;
-  --primary-color: #fefefe;
-  --secondary-color: #171d24;
-  --main-color: #b0e3e9;
+  --primary-color: #2f3651;
+  --background-color: #24293e;
+  --secondary-color: #fefefe;
+  --main-color: #8ebbff;
   font-family: var(--type-first);
 
   margin: 0;
-  color: #333;
+  color: #fefefe;
   padding-top: 4rem;
+  background-color: var(--background-color);
 }
 
 h1,
@@ -60,19 +62,19 @@ a {
   font-family: var(--type-second);
   line-height: 1;
   font-size: 3rem;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
   position: relative;
   z-index: 1;
 
   &::after {
     content: '';
     display: block;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.5rem;
+    height: 0.5rem;
     background-color: var(--main-color);
-    position: absolute;
-    bottom: 5px;
-    left: -5px;
+    /* position: absolute; */
+    /* bottom: 5px; */
+    /* left: -5px; */
     border-radius: 0.2rem;
     z-index: -1;
   }

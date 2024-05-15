@@ -4,7 +4,7 @@
 
 .perdeuSenha {
   display: inline-block;
-  color: #666;
+  color: #f3f3f3;
   padding: 0.5rem 0;
   line-height: 1;
 
@@ -33,7 +33,7 @@
   &::after {
     content: '';
     display: block;
-    background-color: #ddd;
+    background-color: #8ab5f6;
     height: 0.5rem;
     width: 3rem;
     border-radius: 0.2rem;
