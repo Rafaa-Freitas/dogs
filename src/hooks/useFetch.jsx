@@ -21,7 +21,7 @@ function useFetch() {
       }
     } catch (error) {
       json = null;
-      setError(error);
+      setError(error.message);
     } finally {
       setData(json);
       setIsLoading(false);

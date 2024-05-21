@@ -28,11 +28,11 @@ export const UserStorage = ({ children }) => {
       const { url, options } = TOKEN_POST({ username, password });
 
       const tokenResponse = await fetch(url, options);
-      if (!tokenResponse.ok) {
-        throw new Error(`Erro: ${tokenResponse.statusText}`);
-      }
+      const { message, token } = await tokenResponse.json();
 
-      const { token } = await tokenResponse.json();
+      if (!tokenResponse.ok) {
+        throw new Error(`Erro: ${message}`);
+      }
 
       window.localStorage.setItem('token', token);
 
@@ -63,24 +63,27 @@ export const UserStorage = ({ children }) => {
     async function autoLogin() {
       const token = window.localStorage.getItem('token');
 
-      if (token) {
-        setError(null);
-        setIsLoading(true);
+      if (!token) {
+        setIsLogged(false);
+        return;
+      }
 
-        try {
-          const { url, options } = VALIDATE_TOKEN_POST(token);
+      setError(null);
+      setIsLoading(true);
 
-          const response = await fetch(url, options);
-          if (!response.ok) {
-            throw new Error('Token inválido');
-          }
+      try {
+        const { url, options } = VALIDATE_TOKEN_POST(token);
 
-          await getUser(token);
-        } catch (error) {
-          userLogout();
-        } finally {
-          setIsLoading(false);
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          throw new Error('Token inválido');
         }
+
+        await getUser(token);
+      } catch (error) {
+        userLogout();
+      } finally {
+        setIsLoading(false);
       }
     }
 
