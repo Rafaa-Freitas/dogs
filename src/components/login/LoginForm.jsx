@@ -6,8 +6,8 @@ import useForm from '../../hooks/useForm';
 import { UserContext } from '../../UserContext';
 import Error from '../helpers/Error';
 
-import styles from './LoginForm.module.css';
-import stylesButton from '../forms/Button.module.css';
+import styles from './LoginForm.module.scss';
+import stylesButton from '../forms/Button.module.scss';
 
 function LoginForm() {
   const username = useForm();

@@ -4,7 +4,7 @@
 
 .perdeuSenha {
   display: inline-block;
-  color: #f3f3f3;
+  color: var(--secondary-color);
   padding: 0.5rem 0;
   line-height: 1;
 
@@ -19,15 +19,16 @@
 
 .cadastro {
   margin-top: 4rem;
+
   p {
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
   }
 }
 
 .cadastroSubtitle {
   font-family: var(--type-second);
-  line-height: 1;
+  line-height: 1.2;
   font-size: 2rem;
 
   &::after {

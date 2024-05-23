@@ -6,7 +6,7 @@ import LoginPasswordLost from './LoginPasswordLost';
 import LoginPasswordReset from './LoginPasswordReset';
 import { UserContext } from '../../UserContext';
 import { Navigate } from 'react-router-dom';
-import styles from './Login.module.css';
+import styles from './Login.module.scss';
 
 function Login() {
   const { isLogged } = React.useContext(UserContext);

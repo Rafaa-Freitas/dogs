@@ -9,7 +9,7 @@ body {
   --type-second: 'Spectral', Georgia;
   --primary-color: #2f3651;
   --background-color: #24293e;
-  --secondary-color: #fefefe;
+  --secondary-color: #fbf8f3;
   --main-color: #8ebbff;
   font-family: var(--type-first);
 
@@ -49,7 +49,7 @@ input {
 
 a {
   text-decoration: none;
-  color: #333;
+  color: var(--secondary-color);
 }
 
 .container {
