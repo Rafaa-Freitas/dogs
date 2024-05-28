@@ -1,5 +1,5 @@
 import React from 'react';
-import pawSvg from '../assets/paw.svg';
+import pawSvg from '../../assets/paw.svg';
 import styles from './Loading.module.scss';
 
 function Loading() {

@@ -50,6 +50,18 @@ export function CREATE_USER(body) {
   };
 }
 
+export function GET_PHOTOS({ page, itemsQuantity, user }) {
+  return {
+    url:
+      API_URL +
+      `/api/photo/?_page=${page}&_total=${itemsQuantity}&_user=${user}`,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+    },
+  };
+}
+
 export function POST_PHOTO(formData, token) {
   return {
     url: API_URL + '/api/photo',

@@ -14,7 +14,7 @@ body {
   font-family: var(--type-first);
 
   margin: 0;
-  color: #fefefe;
+  color: #fbf8f3;
   padding-top: 4rem;
   background-color: var(--background-color);
 }
@@ -56,6 +56,10 @@ a {
   max-width: 50rem;
   padding: 0 1rem;
   margin: 0 auto;
+}
+
+.mainContainer {
+  margin-top: 4rem;
 }
 
 .title {
