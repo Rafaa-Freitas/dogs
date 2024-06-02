@@ -62,6 +62,16 @@ export function GET_PHOTOS({ page, itemsQuantity, user }) {
   };
 }
 
+export function GET_PHOTO(photoId) {
+  return {
+    url: API_URL + `/api/photo/${photoId}`,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+    },
+  };
+}
+
 export function POST_PHOTO(formData, token) {
   return {
     url: API_URL + '/api/photo',
