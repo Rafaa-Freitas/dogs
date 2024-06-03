@@ -1,0 +1,59 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  margin: 1rem;
+
+  .textArea {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-family: var(--type-first);
+    resize: none;
+    border: 1px solid #eee;
+    padding: 1.5rem;
+    border-radius: 0.2rem;
+    background: #eee;
+    transition: 0.2s;
+
+    &:focus,
+    &:hover {
+      outline: none;
+      border-color: var(--main-color);
+      background: white;
+      box-shadow: 0 0 0 3px #b0cfff;
+    }
+  }
+
+  .enviarBtn {
+    border: none;
+    cursor: pointer;
+    color: #eee;
+    background: transparent;
+    font-size: 1rem;
+    padding: 0 1rem;
+    overflow: hidden;
+    outline: none;
+
+    &:focus svg,
+    &:hover svg {
+      :global(.latido) {
+        animation: latir 1s infinite;
+      }
+
+      path {
+        fill: #b0cfff;
+        stroke: var(--main-color);
+      }
+    }
+  }
+}
+
+@keyframes latir {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
