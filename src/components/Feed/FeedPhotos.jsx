@@ -7,6 +7,7 @@ import Loading from '../helpers/Loading';
 import styles from './FeedPhotos.module.scss';
 
 import { GET_PHOTOS } from '../../api';
+import LoadingBone from '../helpers/LoadingBone';
 
 function FeedPhotos({ setModalPhoto }) {
   const { data, isLoading, error, request } = useFetch();
@@ -19,15 +20,14 @@ function FeedPhotos({ setModalPhoto }) {
         user: 0,
       });
 
-      const { response, json } = await request(url, options);
-      console.log(json);
+      await request(url, options);
     }
 
     fetchPhotos();
   }, [request]);
 
   if (isLoading) {
-    return <Loading></Loading>;
+    return <LoadingBone></LoadingBone>;
   }
 
   if (error) {

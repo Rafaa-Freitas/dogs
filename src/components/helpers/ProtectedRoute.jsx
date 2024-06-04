@@ -2,6 +2,7 @@ import React from 'react';
 import { UserContext } from '../../UserContext';
 import { Navigate } from 'react-router-dom';
 import Loading from './Loading';
+import LoadingBone from './LoadingBone';
 
 function ProtectedRoute({ children }) {
   const { isLogged } = React.useContext(UserContext);
@@ -11,7 +12,7 @@ function ProtectedRoute({ children }) {
   }
 
   if (isLogged == null) {
-    return <Loading></Loading>;
+    return <LoadingBone></LoadingBone>;
   }
 
   return <Navigate to="/login"></Navigate>;
