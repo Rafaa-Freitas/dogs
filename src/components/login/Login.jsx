@@ -7,6 +7,7 @@ import LoginPasswordReset from './LoginPasswordReset';
 import { UserContext } from '../../UserContext';
 import { Navigate } from 'react-router-dom';
 import styles from './Login.module.scss';
+import NotFound from '../NotFound';
 
 function Login() {
   const { isLogged } = React.useContext(UserContext);
@@ -29,6 +30,7 @@ function Login() {
             path="resetar"
             element={<LoginPasswordReset></LoginPasswordReset>}
           ></Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
     </section>
