@@ -9,12 +9,12 @@ body {
   --type-second: 'Spectral', Georgia;
   --primary-color: #2f3651;
   --background-color: #24293e;
-  --secondary-color: #fbf8f3;
+  --secondary-color: #f4f8ff;
   --main-color: #8ebbff;
   font-family: var(--type-first);
 
   margin: 0;
-  color: #fbf8f3;
+  color: #f4f8ff;
   padding-top: 4rem;
   background-color: var(--background-color);
 }
@@ -73,12 +73,12 @@ a {
   &::after {
     content: '';
     display: block;
-    width: 2.5rem;
-    height: 0.5rem;
-    background-color: var(--main-color);
-    /* position: absolute; */
-    /* bottom: 5px; */
-    /* left: -5px; */
+    width: 1.5rem;
+    height: 1.5rem;
+    bottom: 5px;
+    left: -5px;
+    position: absolute;
+    background-color: #394b66;
     border-radius: 0.2rem;
     z-index: -1;
   }

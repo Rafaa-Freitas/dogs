@@ -9,22 +9,25 @@ import styles from './FeedPhotos.module.scss';
 import { GET_PHOTOS } from '../../api';
 import LoadingBone from '../helpers/LoadingBone';
 
-function FeedPhotos({ setModalPhoto }) {
+function FeedPhotos({ user, page, setModalPhoto, setCanInfiniteScroll }) {
   const { data, isLoading, error, request } = useFetch();
 
   React.useEffect(() => {
     async function fetchPhotos() {
       const { url, options } = GET_PHOTOS({
-        page: 1,
-        itemsQuantity: 6,
-        user: 0,
+        page,
+        itemsQuantity: 3,
+        user,
       });
 
-      await request(url, options);
+      const { response, json } = await request(url, options);
+      if (response && response.ok && json.length < 3) {
+        setCanInfiniteScroll(false);
+      }
     }
 
     fetchPhotos();
-  }, [request]);
+  }, [request, user, page, setCanInfiniteScroll]);
 
   if (isLoading) {
     return <LoadingBone></LoadingBone>;
