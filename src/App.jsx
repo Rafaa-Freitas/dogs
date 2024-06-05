@@ -9,6 +9,7 @@ import Login from './components/login/Login';
 import User from './components/user/User';
 import { UserStorage } from './UserContext';
 import ProtectedRoute from './components/helpers/ProtectedRoute';
+import Photo from './components/Photo/Photo';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            <Route path="foto/:id" element={<Photo />} />
           </Routes>
           <Footer />
         </UserStorage>
