@@ -8,6 +8,7 @@ import Error from '../helpers/Error';
 
 import styles from './LoginForm.module.scss';
 import stylesButton from '../forms/Button.module.scss';
+import Head from '../helpers/Head';
 
 function LoginForm() {
   const username = useForm();
@@ -25,6 +26,7 @@ function LoginForm() {
 
   return (
     <section className="animeLeft">
+      <Head title="Login" />
       <h1 className="title">Login</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input

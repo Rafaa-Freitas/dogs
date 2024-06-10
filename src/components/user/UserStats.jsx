@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from '../helpers/Head';
 
 function UserStats() {
   const [numero, setNumero] = React.useState(1);
@@ -14,6 +15,7 @@ function UserStats() {
 
   return (
     <div>
+      <Head title="Estatísticas" />
       {numero}
       <button onClick={handleClick}>Aumentar</button>
     </div>
