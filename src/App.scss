@@ -106,3 +106,17 @@ a {
     flex: 1;
   }
 }
+
+.VictoryContainer {
+  height: initial !important;
+
+  g[role='presentation'] {
+    line {
+      stroke: #f4f8ff !important;
+    }
+
+    text tspan {
+      fill: #f4f8ff !important;
+    }
+  }
+}

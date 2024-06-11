@@ -1,25 +1,44 @@
 import React from 'react';
 import Head from '../helpers/Head';
+import useFetch from '../../hooks/useFetch';
+import LoadingBone from '../helpers/LoadingBone';
+import Error from '../helpers/Error';
+import { GET_STATS } from '../../api';
+
+const UserStatsGraphs = React.lazy(() => import('./UserStatsGraphs'));
 
 function UserStats() {
-  const [numero, setNumero] = React.useState(1);
+  const { data, error, isLoading, request } = useFetch();
 
   React.useEffect(() => {
-    console.log(numero);
-  }, [numero]);
+    async function getData() {
+      const token = window.localStorage.getItem('token');
+      const { url, options } = GET_STATS(token);
 
-  function handleClick() {
-    setNumero((numero) => numero + 1);
-    setNumero((numero) => numero + 1);
+      await request(url, options);
+    }
+
+    getData();
+  }, [request]);
+
+  if (isLoading) {
+    return <LoadingBone />;
   }
 
-  return (
-    <div>
-      <Head title="Estatísticas" />
-      {numero}
-      <button onClick={handleClick}>Aumentar</button>
-    </div>
-  );
+  if (error) {
+    return <Error error={error} />;
+  }
+
+  if (data) {
+    return (
+      <React.Suspense fallback={<div></div>}>
+        <Head title="Estatísticas" />
+        <UserStatsGraphs data={data} />
+      </React.Suspense>
+    );
+  }
+
+  return null;
 }
 
 export default UserStats;

@@ -136,3 +136,15 @@ export function RESET_PASSWORD(body) {
     },
   };
 }
+
+export function GET_STATS(token) {
+  return {
+    url: API_URL + `/api/stats`,
+    options: {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    },
+  };
+}
